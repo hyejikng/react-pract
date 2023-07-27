@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById('root');
+    let counter = 0;
+    // 카운트 올리는 함수 만들기
+    function countUp() {
+      counter = counter + 1;
+      //   ReactDOM.render(<Container />, root); // 리랜더링 => 카운터변화
+      render();
+    }
+
+    //이렇게 리랜더링으로 여러번 쓸거면 함수로 만들어서 계속쓰자
+    function render() {
+      ReactDOM.render(<Container />, root);
+    }
+
+    /* const Container = () => (
+      <div>
+        <h3>Total Clicks: {counter}</h3>
+        <button onClick={countUp}>Click me</button>
+      </div>
+    ); */
+    function Container() {
+      return (
+        <div>
+          <h3>Total Clicks: {counter}</h3>
+          <button onClick={countUp}>Click me</button>
+        </div>
+      );
+    }
+
+    //함수는 바로 실행되지 않는다.
+    // ReactDOM.render(<Container />, root); // 어플리케이션이 시작되면 제일 먼저 실행되는 라인
+    // 리랜더링을 하지 않기 때문에 새로운 UI 업데이트를 하지 않음.(카운터 증가)
+    render();
+  </script>
+</html>
