@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    const span = React.createElement(
+      'span',
+      { id: 'sexy-span', style: { color: 'red' } },
+      'Hello, I am a span'
+    ); //괄호 안에는 우리가 html에 생성하고자 하는 element tag와 같은 이름이어야 한다.
+    // 그럼 body안에 위에서 만든 span element를 어떻게 넣어주는지 확인해보자(눈으로 확인하기 위해)
+    // 1. react-dom을 사용한다.
+    // react-dom은 library, package인데 모든 React elements를 HTML에 둘 수 있게 해준다.
+    // ReactDOM.render(span, span을 보여줄 장소); //render: React element를 가지고 HTML로 만들어 배치하겠다는 의미(사용자에게 보여주겠다!)
+    // 보여줄 장소를 만들기 위해 body에 root를 만들고 이를 javascript로 가져오자.
+    const root = document.getElementById('root');
+    ReactDOM.render(span, root);
+    // body > span 생성 확인 후, property(2nd argument)를 만들어보자.
+    // const span = React.createElement('span', {id: 'sexy-span'})
+    // body > span > span내부 content: 3rd argument
+    // const span = React.createElement('span', {id: 'sexy-span'}, "Hello, I am a span" )
+    // recap**
+    // javascript를 이용해 element를 생성했고, ReactJS가 그것들을 html로 번역(html에 보여주는 역할)
+  </script>
+</html>
