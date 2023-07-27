@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById('root');
+    /* const h3 = React.createElement(
+          'h3',
+          {
+            onMouseEnter: () => console.log('mouse enter'),
+          },
+          'Hello, I am a span'
+        ); */
+
+    /* property는 마치 HTML 태그의 속성처럼 적으면 된다. */
+    function Title() {
+      return (
+        <h3 id="title" onMouseEnter={() => console.log('mouse enter')}>
+          Hello I am a title
+        </h3>
+      );
+    }
+
+    // 버튼만들기
+
+    /* const btn = React.createElement(
+          'button',
+          {
+            //property에 eventListner 입력 : 즉, 'button을 선택하고 우리는 거기에 이벤트 리스너를 넣을거야'라는 의미
+            onClick: () => console.log('I am clicked'),
+          },
+          'Click Me'
+        ); */
+
+    const Button = () => (
+      <button
+        style={{ backgroundColor: 'tomato' }}
+        onClick={() => console.log('I am clicked')}
+      >
+        Click here
+      </button>
+    );
+
+    // container 만들기
+    /* const container = React.createElement('div', null, [Title, Button]); */
+    const Container = () => (
+      <div>
+        <Title /> <Button />
+      </div>
+    );
+    // container에 위의 Title과 Button을 추가하려면 이 두개가 함수의 형태를 가지고 있어야 한다.
+    // 직접만든 모든 components를 랜더링해서 다른곳에 사용할때는 항상!!! 대문자로 시작!! 그렇지 않으면 html tag로 인식.
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>
