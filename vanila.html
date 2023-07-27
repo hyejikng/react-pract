@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <span>Total clicks: 0</span>
+    <button id="btn">Click me</button>
+  </body>
+  <script>
+    let counter = 0;
+
+    const button = document.getElementById('btn'); //버튼이 여러개인 경우를 대비해, id를 부여해서 고유한 버튼을 만들어주자.
+    const span = document.querySelector('span');
+    function handleClick() {
+      counter = counter + 1;
+      span.innerText = `Total clicks: ${counter}`;
+    }
+    button.addEventListener('click', handleClick);
+  </script>
+</html>
